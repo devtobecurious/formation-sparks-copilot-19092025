@@ -11,7 +11,7 @@ public class GameSession
     public DateTime StartTime { get; set; }
     public DateTime? EndTime { get; set; }
     public int? Score { get; set; }
-    public TimeSpan? Duration => EndTime?.Subtract(StartTime);
+    public TimeSpan? Duration => (EndTime.HasValue && EndTime.Value >= StartTime) ? EndTime.Value - StartTime : null;
     public SessionStatus Status { get; set; } = SessionStatus.Active;
     public string? Notes { get; set; }
 }
