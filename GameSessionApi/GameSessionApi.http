@@ -1,0 +1,43 @@
+@GameSessionApi_HostAddress = http://localhost:5126
+
+### Get all game sessions
+GET {{GameSessionApi_HostAddress}}/sessions
+Accept: application/json
+
+### Get session by ID
+GET {{GameSessionApi_HostAddress}}/sessions/1
+Accept: application/json
+
+### Create a new game session
+POST {{GameSessionApi_HostAddress}}/sessions
+Content-Type: application/json
+
+{
+  "gameTitle": "The Legend of Zelda: Tears of the Kingdom",
+  "playerName": "Link",
+  "notes": "Exploration du château d'Hyrule"
+}
+
+### Update a game session
+PUT {{GameSessionApi_HostAddress}}/sessions/1
+Content-Type: application/json
+
+{
+  "endTime": "2025-09-19T11:30:00Z",
+  "score": 95000,
+  "status": 1,
+  "notes": "Session terminée - boss final vaincu!"
+}
+
+### Get sessions by player
+GET {{GameSessionApi_HostAddress}}/sessions/player/Link
+Accept: application/json
+
+### Get sessions by game
+GET {{GameSessionApi_HostAddress}}/sessions/game/Zelda
+Accept: application/json
+
+### Delete a session
+DELETE {{GameSessionApi_HostAddress}}/sessions/1
+
+###
